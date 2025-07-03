@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('25bc2596aa797c1dd821a02b79e1a734.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center;
+}
+.navbar {
+    position: unset;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 15px 30px;
+}
+.navbar .logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-right: auto;
+}
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+.navbar ul li {
+    margin: 0 15px;
+}
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+.navbar ul li a:hover {
+    color: #ffcc00;
+}
+
+
+
+
+
+#image {
+    filter: drop-shadow(0 0 0.75rem #141004);
+    box-shadow: #141004;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    
+}
+#home img:hover {
+    transform: scale(1.1);
+}
+div section {
+    background: linear-gradient(295deg, rgba(185, 137, 74, 0.92) 33%, #ffc300 33%);
+    border-radius: 50px;
+    box-shadow: 2px 2px 5px rgb(62, 1, 1);
+    font-size: 25px;
+    padding: 20px 20px;
+    color: #333;
+    width: 40%;
+    margin-right: auto;
+}
+div section p {
+    font-size: 12px;
+}
+.About img:hover {
+    transform: scale(1.1);
+}
+.About {
+    background: linear-gradient(65deg, rgba(196, 138, 75, 0.781) 33%, #ffc300 33%);
+    border-radius: 40px;
+    box-shadow: 2px 2px 5px rgb(52, 52, 52);
+    font-size: 15px;
+    padding: 10px 20px;
+    color: #333;
+    width: 40%;
+    margin-left: auto;
+}
+.About p {
+    font-size: 12px;
+}
+.location img:hover {
+    transform: scale(1.1);
+}
+.location {
+    background: linear-gradient(290deg, rgba(214, 169, 106, 0.724) 33%, #ffc300 33%);
+    border-radius: 50px;
+    box-shadow: 2px 2px 5px rgb(78, 50, 2);
+    font-size: 15px;
+    padding: 10px 20px;
+    color: #333;
+    width: 40%;
+    margin-right: auto;
+}
+.location p {
+    font-size: 13px;
+}
+.contact-form {
+    background-color: rgba(7, 7, 1, 0.404);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 50%; 
+    margin: 20px auto;
+    color: rgb(240, 203, 80);
+}
+
+.contact-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffcc00;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; 
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-form input[type="submit"] {
+    background-color: #ffcc00;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.contact-form input[type="submit"]:hover {
+    background-color: #e6b800;
+   
+}
+
+@media (max-width: 768px) {
+    .contact-form {
+        width: 70%;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form {
+        width: 90%;
+        padding: 10px;
+    }
+    
+}
+#floating-image:hover {
+    border-radius: 100%;
+    transform: scale(1.1);
+}
+#floating-image {
+    filter: drop-shadow(0 0 0.75rem #141004);
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 50px;
+    height: 50px;
+}
+
+.footer {
+    position: unset;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+
+@media (max-width: 700px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navbar ul {
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
+    }
+    .navbar ul li {
+        margin: 10px 0;
+    }
+    div section, .About, .location {
+        width: 60%;
+    }
+}
+@media (max-width: 700px) {
+    #floating-image {
+        width: 50px;
+        height: 40px;
+        bottom: 50px;
+        right: 40px;
+    }
+    div section, .About, .location {
+        width: 80%;
+    }
+}
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+    .navbar .logo {
+        font-size: 20px;
+    }
+    .navbar ul li a {
+        font-size: 16px;
+    }
+    div section, .About, .location {
+        width: 100%;
+        font-size: 18px;
+    }
+    div section p, .About p, .location p {
+        font-size: 10px;
+    }
+}
+@media (max-width: 450px) {
+    #image {
+        width:100%;
+       
+    }
+}
+@media (max-width: 280px) {
+    #image {
+        width: 20%;
+    }
+    #floating-image {
+        width: 50px;
+        height: 40px;
+        bottom: 50px;
+        right: 40px;}
+}

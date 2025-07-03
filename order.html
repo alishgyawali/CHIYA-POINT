@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Room Service</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <i class="fas fa-concierge-bell"></i>
+            <span style="color: white;">CHIYA</span>
+            <span style="color: #ffc300;">POINT</span>
+        </a>
+        <ul>
+          
+                <div class="cart-icon" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Customer Interface -->
+    <div id="customer-interface" class="interface active">
+        <div class="hero-section">
+            <h1 style="color: white;">Place Your</h1>
+            <h1 class="accent">Order</h1>
+            <p style="font-size: 20px; margin-top: 20px;"> Yummy food  at Your Fingertips</p>
+        </div>
+
+        <!-- Menu Categories -->
+        <div class="menu-categories">
+            <button class="category-btn active" onclick="showCategory('breakfast')">
+                <i class="fas fa-coffee"></i> Breakfast
+            </button>
+            <button class="category-btn" onclick="showCategory('lunch')">
+                <i class="fas fa-hamburger"></i> Lunch
+            </button>
+            <button class="category-btn" onclick="showCategory('dinner')">
+                <i class="fas fa-utensils"></i> Dinner
+            </button>
+            <button class="category-btn" onclick="showCategory('drinks')">
+                <i class="fas fa-glass-cheers"></i> Drinks
+            </button>
+            <button class="category-btn" onclick="showCategory('desserts')">
+                <i class="fas fa-ice-cream"></i> Desserts
+            </button>
+        </div>
+
+        <!-- Menu Items -->
+        <div class="menu-container" id="menu-container">
+            <!-- Menu items will be populated by JavaScript -->
+        </div>
+
+       
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Order</h3>
+            <button class="close-cart" onclick="toggleCart()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be populated here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: Rs<span id="cart-total">0.00</span></strong>
+            </div>
+            <button class="btn-primary btn-full" onclick="placeOrder()">
+                <i class="fas fa-credit-card"></i> Place Order
+            </button>
+        </div>
+    </div>
+
+    <!-- Item Customization Modal -->
+    <div class="modal" id="customization-modal">
+        <div class="modal-content contact-form">
+            <div class="modal-header">
+                <h3 id="modal-item-name">Customize Item</h3>
+                <button class="close-modal" onclick="closeCustomizationModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="customization-options" id="customization-options">
+                    <!-- Customization options will be populated here -->
+                </div>
+                <div class="quantity-selector">
+                    <label>Quantity:</label>
+                    <div class="quantity-controls">
+                        <button onclick="changeQuantity(-1)">-</button>
+                        <span id="item-quantity">1</span>
+                        <button onclick="changeQuantity(1)">+</button>
+                    </div>
+                </div>
+                <div class="special-instructions">
+                    <label for="special-notes">Special Instructions:</label>
+                    <textarea id="special-notes" placeholder="Any special requests..."></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="item-price" style="color: #ffc300; font-size: 18px; font-weight: bold;">
+                    Total: Rs<span id="modal-item-price">0.00</span>
+                </div>
+                <button class="btn-primary" onclick="addToCart()">
+                    <i class="fas fa-cart-plus"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Menu Button -->
+    <div id="floating-image" onclick="toggleCart()">
+        <i class="fas fa-shopping-cart"></i>
+    </div>
+
+<!-- Order Confirmation Popup -->
+<div id="order-confirmation" class="order-confirmation-popup" style="display: none;">
+    <div class="popup-content">
+        <h2>Thank you so much for ordering!</h2>
+        <p>Your food will arrive ASAP.</p>
+        <button onclick="closeOrderConfirmation()" class="btn-primary">OK</button>
+    </div>
+</div>
+<script>
+function showOrderConfirmation() {
+    document.getElementById('order-confirmation').style.display = 'flex';
+}
+function closeOrderConfirmation() {
+    document.getElementById('order-confirmation').style.display = 'none';
+}
+// Modify placeOrder to show the popup
+function placeOrder() {
+    // ... your existing order logic ...
+    showOrderConfirmation();
+    // Optionally, clear cart or reset UI here
+}
+</script>
+<style>
+.order-confirmation-popup {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+.order-confirmation-popup .popup-content {
+    background: #fff;
+    padding: 2rem 2.5rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+}
+.order-confirmation-popup h2 {
+    color: #27ae60;
+    margin-bottom: 1rem;
+}
+.order-confirmation-popup .btn-primary {
+    margin-top: 1.5rem;
+    padding: 0.5rem 1.5rem;
+    background: #ffc300;
+    color: #222;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+</style>
+
+    <script src="script.js"></script>
+</body>
+</html>
